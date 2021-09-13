@@ -1,0 +1,16 @@
+
+<h1>Main page</h1>
+<ul>
+    <li>OIDC_PROVIDER_URI: <%= ENV['OIDC_PROVIDER_URI']  %></li>
+    <li>session.keys: <%= session.keys %></li>
+    <li>session.secured: <%= session[:secured] %></li>
+    <li>session.origin: <%= session[:origin] if session.has_key?(:origin) %></li>
+    <li>session.userinfo.name: <%= session[:userinfo][:name] if session.has_key?(:userinfo)%></li>
+    <li>session.userinfo.email: <%= session[:userinfo][:email] if session.has_key?(:userinfo)%></li>
+    <li>session.userinfo.groups: <%= session[:userinfo][:groups] if session.has_key?(:userinfo)%></li>
+</ul>
+<ul>
+    <li><a href="/protected">/protected</a></li>
+    <li><a href="/login">/login</a></li>
+    <li><a href="/logout">/logout</a></li>
+</ul>
