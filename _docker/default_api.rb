@@ -41,12 +41,12 @@ MyApp.add_route('GET', '/callback', {
   cross_origin
   # the guts live here
   code = params[:code]
-  nonce = session[:nonce]
+  nonce = session.delete(:nonce)
   ret =  dex.redirect(code, nonce)
   session[:userinfo] = ret.raw_attributes
 
   session[:secured] = true
-  redirect(session[:origin], 303) if session.has_key?(:origin)
+  redirect(session.delete(:origin), 303) if session.has_key?(:origin)
   redirect("/", 303)
 end
 
