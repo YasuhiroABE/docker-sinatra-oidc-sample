@@ -63,7 +63,8 @@ module MyOIDCProvider
     end
     
     def discover
-      @disco ||= OpenIDConnect::Discovery::Provider::Config.discover! @provider_uri
+      OpenIDConnect::Discovery::Provider::Config.discover! @provider_uri
+      ## Removed "@disco ||=" by YasuhiroABE <yasu@yasundial.org>
     end
   end
 end
